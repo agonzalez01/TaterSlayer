@@ -1,2 +1,2 @@
 # TaterSlayer
-2.5D turb-based projectile shooter game
+2.5D turn-based projectile shooter game
