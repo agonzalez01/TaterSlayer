@@ -340,6 +340,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &994468134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1004854097432647575, guid: 1074f2266e4f4dc41b1304aecb96931b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1004854097863642899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &994468139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994468134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 5, z: 10}
+  m_Center: {x: 0, y: -2, z: 0}
 --- !u!1 &1006977848
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +575,7 @@ GameObject:
   - component: {fileID: 1300794339}
   - component: {fileID: 1300794338}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300794337}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.22, y: 5.19, z: 7.22}
+  m_LocalPosition: {x: -0.22, y: 3.48, z: 7.22}
   m_LocalScale: {x: 5, y: 0.1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1006,6 +1025,24 @@ Transform:
   m_Father: {fileID: 910561462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2113513186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 869392515824918293, guid: 7220cd8509bc0fb498802e993837c2db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1381473916}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2113513187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113513186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25a3a56e21f5a742a44e2b215d6dcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1004854097863642899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,9 +1050,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1004854097432647574, guid: 1074f2266e4f4dc41b1304aecb96931b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004854097432647574, guid: 1074f2266e4f4dc41b1304aecb96931b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004854097432647574, guid: 1074f2266e4f4dc41b1304aecb96931b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1004854097432647575, guid: 1074f2266e4f4dc41b1304aecb96931b,
         type: 3}
       propertyPath: m_Name
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004854097432647575, guid: 1074f2266e4f4dc41b1304aecb96931b,
+        type: 3}
+      propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 1004854097432647579, guid: 1074f2266e4f4dc41b1304aecb96931b,
@@ -1026,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 1004854097432647579, guid: 1074f2266e4f4dc41b1304aecb96931b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.57
+      value: 5.67
       objectReference: {fileID: 0}
     - target: {fileID: 1004854097432647579, guid: 1074f2266e4f4dc41b1304aecb96931b,
         type: 3}
