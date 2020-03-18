@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -432,37 +432,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &994468134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1004854097432647575, guid: 1074f2266e4f4dc41b1304aecb96931b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1004854097863642899}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &994468135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994468134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f921d288ff67ef14ca1b9604f86ee34a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &994468139
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994468134}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 5, z: 10}
-  m_Center: {x: 0, y: -2, z: 0}
 --- !u!1 &1006977848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,29 +1233,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1004854097432647574, guid: 1074f2266e4f4dc41b1304aecb96931b,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1004854097432647574, guid: 1074f2266e4f4dc41b1304aecb96931b,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1004854097432647574, guid: 1074f2266e4f4dc41b1304aecb96931b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1004854097432647575, guid: 1074f2266e4f4dc41b1304aecb96931b,
         type: 3}
       propertyPath: m_Name
-      value: Water
-      objectReference: {fileID: 0}
-    - target: {fileID: 1004854097432647575, guid: 1074f2266e4f4dc41b1304aecb96931b,
-        type: 3}
-      propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 1004854097432647579, guid: 1074f2266e4f4dc41b1304aecb96931b,
