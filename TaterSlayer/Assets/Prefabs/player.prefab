@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 869392515824918288}
   - component: {fileID: 869392515824918295}
   - component: {fileID: 869392515824918294}
+  - component: {fileID: -1568200750060515409}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -124,8 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1054fa87735cc6b43af93eabf8d55714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 0
   speed: 5
   layer:
     serializedVersion: 2
     m_Bits: 0
   hitDistance: 0
+--- !u!114 &-1568200750060515409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869392515824918293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25a3a56e21f5a742a44e2b215d6dcca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potatoHealth: 100
+  Dryness: Dry
