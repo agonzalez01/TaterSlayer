@@ -28,48 +28,50 @@ public class Water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Water moves when pressing "e" to simulate turns
-        if (Input.GetKeyDown("e"))
+        
+
+
+    }
+
+    public void WaterChange()
+    {
+        //Low water moves to medium
+        if (tempPos.y == 1.6f)
         {
-            //Low water moves to medium
-            if (tempPos.y == 1.6f)
+            tempPos.y = 2.3f;
+            tempPos.z = 9.31f;
+            tempPos.x = -0.05f;
+            transform.position = tempPos;
+        }
+
+        //medium water moves to full
+        else if (tempPos.y == 2.3f)
+        {
+            tempPos.y = 2.6f;
+            tempPos.z = 9.31f;
+            tempPos.x = -0.05f;
+            transform.position = tempPos;
+        }
+
+        //Full water drains with garbage disposal
+        else if (tempPos.y == 2.6f)
+        {
+            tempPos.y = 1.6f;
+            tempPos.z = 9.31f;
+            tempPos.x = -0.05f;
+            transform.position = tempPos;
+
+            if (potatoHazards.Dryness == "Soggy")
             {
-                tempPos.y = 2.3f;
-                tempPos.z = 9.31f;
-                tempPos.x = -0.05f;
-                transform.position = tempPos;
-            }
 
-            //medium water moves to full
-            else if (tempPos.y == 2.3f)
-            {
-                tempPos.y = 2.6f;
-                tempPos.z = 9.31f;
-                tempPos.x = -0.05f;
-                transform.position = tempPos;
-            }
+                potatoHazards.potatoHealth -= 10;
 
-            //Full water drains with garbage disposal
-            else if (tempPos.y == 2.6f)
-            {
-                tempPos.y = 1.6f;
-                tempPos.z = 9.31f;
-                tempPos.x = -0.05f;
-                transform.position = tempPos;
-
-                if (potatoHazards.Dryness == "Soggy")
-                {
-
-                    potatoHazards.potatoHealth -= 10;
-
-                    Debug.Log(potatoHazards.potatoHealth);
-
-                }
+                Debug.Log(potatoHazards.potatoHealth);
 
             }
 
         }
 
-
     }
 }
+

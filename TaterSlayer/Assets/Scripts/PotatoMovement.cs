@@ -6,11 +6,14 @@ public class PotatoMovement : MonoBehaviour
 {
     [Header("PlayerMovement")]
 
-    GameObject TurnManager;
-    Turns WhatTurn;
+   
     public bool canMove;
 
     public float speed = 5f;
+
+    public GameObject Knife;
+    public GameObject Sniper;
+    public GameObject Launcher;
 
     private Rigidbody rb;
     private Animator anim;
@@ -31,8 +34,10 @@ public class PotatoMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TurnManager = GameObject.Find("TurnManager");
-       // TurnManager = Player.GetComponent<Turns>();
+        Knife.SetActive(false);
+        Sniper.SetActive(false);
+        Launcher.SetActive(false);
+
         hitDistance = GetComponent<Collider>().bounds.extents.y;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -55,10 +60,6 @@ public class PotatoMovement : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             rb.velocity = new Vector3(moveHorizontal * speed, rb.velocity.y, rb.velocity.z);
         }
-
-        // else
-        //  Debug.Log("moveBro");
-     
 
     }
 
@@ -97,4 +98,28 @@ public class PotatoMovement : MonoBehaviour
 
     //    return hit.collider != null;
     //}
+
+    public void ChooseWeapon(int weapon)
+    {
+        if(weapon == 1)
+        {
+            Knife.SetActive(true);
+            Sniper.SetActive(false);
+            Launcher.SetActive(false);
+        }
+
+        if(weapon == 2)
+        {
+            Knife.SetActive(false);
+            Sniper.SetActive(true);
+            Launcher.SetActive(false);
+        }
+
+        if(weapon == 3)
+        {
+            Knife.SetActive(false);
+            Sniper.SetActive(false);
+            Launcher.SetActive(true);
+        }
+    }
 }
