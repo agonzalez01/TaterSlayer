@@ -17,7 +17,7 @@ public class Water : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //Sets the water where it needs to be
         tempPos.x = -0.05f;
         tempPos.y = 1.6f;
         tempPos.z = 9.31f;
@@ -28,10 +28,10 @@ public class Water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Water moves when pressing "e" to simulate turns
         if (Input.GetKeyDown("e"))
         {
-
+            //Low water moves to medium
             if (tempPos.y == 1.6f)
             {
                 tempPos.y = 2.3f;
@@ -40,6 +40,7 @@ public class Water : MonoBehaviour
                 transform.position = tempPos;
             }
 
+            //medium water moves to full
             else if (tempPos.y == 2.3f)
             {
                 tempPos.y = 2.6f;
@@ -48,6 +49,7 @@ public class Water : MonoBehaviour
                 transform.position = tempPos;
             }
 
+            //Full water drains with garbage disposal
             else if (tempPos.y == 2.6f)
             {
                 tempPos.y = 1.6f;
