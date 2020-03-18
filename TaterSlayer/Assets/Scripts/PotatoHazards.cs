@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class PotatoHazards : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+
+    public int potatoHealth = 100;
+    public string Dryness = "Dry";
+
+
+    void Start()
+    {
+        Debug.Log(potatoHealth);
+    }
+
+    public void OnTriggerEnter(Collider other)
     {
 
         if (other.tag == "Water")
         {
-            Debug.Log("Water In");
+            Dryness = "Soggy";
         }
 
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.tag == "Water")
         {
-            Debug.Log("Water In");
+            Dryness = "Dry";
         }
     }
 }
