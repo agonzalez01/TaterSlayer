@@ -6,6 +6,10 @@ public class PotatoMovement : MonoBehaviour
 {
     [Header("PlayerMovement")]
 
+    GameObject TurnManager;
+    Turns WhatTurn;
+    public bool canMove;
+
     public float speed = 5f;
 
     private Rigidbody rb;
@@ -27,6 +31,8 @@ public class PotatoMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TurnManager = GameObject.Find("TurnManager");
+       // TurnManager = Player.GetComponent<Turns>();
         hitDistance = GetComponent<Collider>().bounds.extents.y;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -44,20 +50,31 @@ public class PotatoMovement : MonoBehaviour
 
     private void PlayerMove()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector3(moveHorizontal * speed, rb.velocity.y, rb.velocity.z);
+        if (canMove)
+        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector3(moveHorizontal * speed, rb.velocity.y, rb.velocity.z);
+        }
+
+        // else
+        //  Debug.Log("moveBro");
+     
 
     }
 
     private void PlayerJump()
     {
-        //float jumpVelocity = 2f;
-        if (isGrounded)
+        if (canMove)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            //float jumpVelocity = 2f;
+            if (isGrounded)
             {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
+                }
             }
+
         }
     }
 
