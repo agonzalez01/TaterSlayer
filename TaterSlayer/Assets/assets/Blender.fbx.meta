@@ -3,7 +3,32 @@ guid: e7f2c5bc5e2d54c4397160a7234022fa
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blender_buttons
+    second: {fileID: 2100000, guid: ce66ca4475f9bfb48abec8a32a28807a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blade
+    second: {fileID: 2100000, guid: 54bc81d6d8b911449928f0484150bd0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blade_holder
+    second: {fileID: 2100000, guid: f14c52ed09cbf88488fd4c503180e676, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert14
+    second: {fileID: 2100000, guid: e114b4709c069c64aac2d122c32a622c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert17
+    second: {fileID: 2100000, guid: bc73eff2aceda1f40b51f22aed0f7ba0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
