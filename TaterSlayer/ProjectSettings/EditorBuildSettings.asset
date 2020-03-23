@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f387e7d3f57571e449d12384c3a99e4a
   - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: df6c0cf5298da604e944c765c32c0670
+  - enabled: 1
     path: Assets/Scenes/kitchenBlockOut.unity
     guid: 391ce8f288c44b44b8a483b42d36f337
   m_configObjects: {}
