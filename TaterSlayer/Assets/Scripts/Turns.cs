@@ -66,6 +66,7 @@ public class Turns : MonoBehaviour
     {
         Debug.Log("SettingTurn");
         CanPlayerMove.canMove = true;
+        CanPlayerMove.canShoot = true;
         StartCoroutine(NextTurn());
 
     }
@@ -76,10 +77,10 @@ public class Turns : MonoBehaviour
         {
             index = -1;
         }
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(50f);
         CanPlayerMove.canMove = false;
 
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(2f);
         index++;
         turnsTaken++;
         PlayerInTurn = Players[index];

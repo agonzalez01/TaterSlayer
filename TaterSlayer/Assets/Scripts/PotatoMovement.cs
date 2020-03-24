@@ -8,8 +8,11 @@ public class PotatoMovement : MonoBehaviour
 
    
     public bool canMove;
+    public bool canShoot;
 
     public float speed = 5f;
+    public float health = 100f;
+
 
     public GameObject Knife;
     public GameObject Sniper;
@@ -26,8 +29,12 @@ public class PotatoMovement : MonoBehaviour
     public LayerMask layer;
     public float hitDistance;
 
+    PotatoMovement playerHit;
+
     private bool isGrounded;
 
+    bool shootDirection = true;
+    int ShootingType; 
 
 
 
@@ -53,12 +60,101 @@ public class PotatoMovement : MonoBehaviour
         CheckGround();
     }
 
+    void Shoot(bool shootRight, int shootingType)
+    {
+        if (canShoot)
+        {
+            canShoot = false;
+
+            float range = 0;
+
+            if (shootingType == 1)
+            {
+                range = 0.5f;
+                Debug.Log("range is short");
+            }
+
+            else if (shootingType == 2)
+            {
+                range = 6;
+                Debug.Log("range is long");
+            }
+
+            RaycastHit hit;
+            if (shootRight)
+            {
+                Debug.DrawRay(transform.position, transform.right, Color.red, 3);
+                if (Physics.Raycast(transform.position, transform.right, out hit, range))
+                {
+                    Debug.Log("hit to the right");
+                    playerHit = hit.transform.GetComponent<PotatoMovement>();
+                    if (playerHit != null)
+                    {
+                        Debug.Log("casted");
+                        playerHit.health -= 30;
+                        if (playerHit.health <= 100)
+                        {
+                            playerHit.gameObject.SetActive(false);
+                        }
+                    }
+
+                }
+            }
+
+            else
+            {
+                Debug.DrawRay(transform.position, -transform.right, Color.red, 3);
+                if (Physics.Raycast(transform.position, -transform.right, out hit, range))
+                {
+                    Debug.Log("hit to the left");
+                    playerHit = hit.transform.GetComponent<PotatoMovement>();
+
+                    if (playerHit != null)
+                    {
+                        Debug.Log("casted");
+                        playerHit.health -= 30;
+                        if (playerHit.health <= 100)
+                        {
+                            // Object.Destroy(playerHit);
+                            playerHit.gameObject.SetActive(false);
+                        }
+                    }
+
+                }
+            }
+
+        }
+        
+        
+
+    }
+
     private void PlayerMove()
     {
         if (canMove)
         {
             float moveHorizontal = Input.GetAxis("Horizontal");
+            var dir = Vector3.zero;
+            dir.x = Input.GetAxis("Horizontal");
+
             rb.velocity = new Vector3(moveHorizontal * speed, rb.velocity.y, rb.velocity.z);
+           // transform.rotation = Quaternion.LookRotation(dir);
+
+            if (dir.x > 0)
+            {
+                shootDirection = true;
+            }
+            else if(dir.x < 0)
+            {
+                shootDirection = false;
+            }
+
+            if (Input.GetKeyDown("t") && ShootingType != 0)
+            {
+                Shoot(shootDirection, ShootingType);
+            }
+
+
         }
 
     }
@@ -106,6 +202,7 @@ public class PotatoMovement : MonoBehaviour
             Knife.SetActive(true);
             Sniper.SetActive(false);
             Launcher.SetActive(false);
+            ShootingType = 1;
         }
 
         if(weapon == 2)
@@ -113,6 +210,7 @@ public class PotatoMovement : MonoBehaviour
             Knife.SetActive(false);
             Sniper.SetActive(true);
             Launcher.SetActive(false);
+            ShootingType = 2;
         }
 
         if(weapon == 3)
@@ -120,6 +218,7 @@ public class PotatoMovement : MonoBehaviour
             Knife.SetActive(false);
             Sniper.SetActive(false);
             Launcher.SetActive(true);
+            ShootingType = 3;
         }
     }
 }
