@@ -3,7 +3,22 @@ guid: dfd46282913c3224fbca9a5462e38025
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Handle
+    second: {fileID: 2100000, guid: f3d33a8aae56b07499c539987c9f4a89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scope
+    second: {fileID: 2100000, guid: 25d1803ac879e494c83809ab7fe487ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Straw
+    second: {fileID: 2100000, guid: 483835dc89f816341a5d6de2cb5a4d36, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

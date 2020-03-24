@@ -3,7 +3,32 @@ guid: b023f33d33c75f74d85b9c133829b40c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrel
+    second: {fileID: 2100000, guid: f86fe7c6496f2f44494aa97c4bb45d87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SaltBottom
+    second: {fileID: 2100000, guid: e586ec4463fb5e34db03c41f991fb275, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SaltHead
+    second: {fileID: 2100000, guid: 74e988f2a63896b4ab3d67b3b6ce0901, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: butt
+    second: {fileID: 2100000, guid: 3c8a6d4399b48e7489691cbd882cc89c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handle_clip
+    second: {fileID: 2100000, guid: d00fdac247d29734bac28062bda4552d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
