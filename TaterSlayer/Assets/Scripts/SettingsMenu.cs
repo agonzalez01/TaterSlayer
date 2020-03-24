@@ -78,11 +78,11 @@ public class SettingsMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void LoadPreviousScene()
+    public void UnloadSettings()
     {
-        //Grabs the previous scene and loads that scene from the PlayerPrefs
-        string sceneName = PlayerPrefs.GetString("lastLoadedScene");
-        SceneManager.LoadScene(sceneName);
+
+        SceneManager.UnloadSceneAsync("SettingsMenu");
+
     }
 
 }
