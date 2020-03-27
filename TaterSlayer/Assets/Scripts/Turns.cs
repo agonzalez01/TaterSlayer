@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turns : MonoBehaviour
 {
@@ -36,25 +37,40 @@ public class Turns : MonoBehaviour
         {
             if(Input.GetKeyDown("1"))
             {
-                weapon = ShootingType.MELEE;
-                hasChosenWeapon = true;
-                CanPlayerMove.ChooseWeapon(1);
+                MeleeWeapon();
             }
 
             else if(Input.GetKeyDown("2"))
             {
-                weapon = ShootingType.SNIPER;
-                hasChosenWeapon = true;
-                CanPlayerMove.ChooseWeapon(2);
+                SniperWeapon();
             }
 
             else if(Input.GetKeyDown("3"))
             {
-                weapon = ShootingType.GRENADE;
-                hasChosenWeapon = true;
-                CanPlayerMove.ChooseWeapon(3);
+                GrenadeWeapon();
             }
         }
+    }
+
+    public void MeleeWeapon()
+    {
+        weapon = ShootingType.MELEE;
+        hasChosenWeapon = true;
+        CanPlayerMove.ChooseWeapon(1);
+    }
+
+    public void SniperWeapon()
+    {
+        weapon = ShootingType.SNIPER;
+        hasChosenWeapon = true;
+        CanPlayerMove.ChooseWeapon(2);
+    }
+
+    public void GrenadeWeapon()
+    {
+        weapon = ShootingType.GRENADE;
+        hasChosenWeapon = true;
+        CanPlayerMove.ChooseWeapon(3);
     }
 
     enum ShootingType

@@ -44,7 +44,10 @@ public class PauseMenu : MonoBehaviour
 
     public void GetSettings()
     {
-        SceneManager.LoadScene("SettingsMenu", LoadSceneMode.Additive);
+        //Saves the current scene
+        PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+
+        SceneManager.LoadScene("SettingsMenu");
     }
 
     public void LoadMainMenu()

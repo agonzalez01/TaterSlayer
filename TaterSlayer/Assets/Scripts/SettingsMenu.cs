@@ -85,4 +85,12 @@ public class SettingsMenu : MonoBehaviour
 
     }
 
+    public void LastLoaded()
+    {
+        string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+
+        SceneManager.LoadScene(sceneName);
+
+    }
+
 }
