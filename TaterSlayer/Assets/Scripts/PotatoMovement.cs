@@ -10,10 +10,10 @@ public class PotatoMovement : MonoBehaviour
     public bool canMove;
     public bool canShoot;
 
-    public float speed = 5f;
+    public float speed = 1f;
     public float health = 100f;
 
-
+    
     public GameObject Knife;
     public GameObject Sniper;
     public GameObject Launcher;

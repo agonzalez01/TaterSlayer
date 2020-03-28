@@ -9,10 +9,18 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
 
+    public GameObject pauseMenu;
+
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("escape");
             if (GameIsPaused)
             {
                 Resume();
@@ -22,24 +30,22 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-
-
     }
 
     public void Pause()
     {
-
+        Debug.Log("Pause Button");
         Time.timeScale = 0f;
         GameIsPaused = true;
-
+        pauseMenu.SetActive(true);
     }
 
     public void Resume()
     {
-
+        Debug.Log("Pause Button");
         Time.timeScale = 1f;
         GameIsPaused = false;
-
+        pauseMenu.SetActive(false);
     }
 
     public void GetSettings()

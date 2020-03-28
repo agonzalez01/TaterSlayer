@@ -54,23 +54,32 @@ public class Turns : MonoBehaviour
 
     public void MeleeWeapon()
     {
-        weapon = ShootingType.MELEE;
-        hasChosenWeapon = true;
-        CanPlayerMove.ChooseWeapon(1);
+        if (!hasChosenWeapon)
+        {
+            weapon = ShootingType.MELEE;
+            hasChosenWeapon = true;
+            CanPlayerMove.ChooseWeapon(1);
+        }
     }
 
     public void SniperWeapon()
     {
-        weapon = ShootingType.SNIPER;
-        hasChosenWeapon = true;
-        CanPlayerMove.ChooseWeapon(2);
+        if (!hasChosenWeapon)
+        {
+            weapon = ShootingType.SNIPER;
+            hasChosenWeapon = true;
+            CanPlayerMove.ChooseWeapon(2);
+        }
     }
 
     public void GrenadeWeapon()
     {
-        weapon = ShootingType.GRENADE;
-        hasChosenWeapon = true;
-        CanPlayerMove.ChooseWeapon(3);
+        if (!hasChosenWeapon)
+        {
+            weapon = ShootingType.GRENADE;
+            hasChosenWeapon = true;
+            CanPlayerMove.ChooseWeapon(3);
+        }
     }
 
     enum ShootingType
