@@ -16,7 +16,7 @@ public class PotatoMovement : MonoBehaviour
     public AudioSource grenadeLaunch;
     public AudioSource oof;
 
-    public float speed = 1f;
+    public float speed = .75f;
     public float health = 100f;
 
     
@@ -132,14 +132,14 @@ public class PotatoMovement : MonoBehaviour
                     {
                         Debug.Log("casted");
                         playerHit.health -= damage;
-                        
+
                         if (playerHit.health <= 0)
                         {
                             playerHit.gameObject.SetActive(false);
                             oof.Play();
                         }
                         else
-                            ouch.Play();
+                            StartCoroutine(PlayOuch());
                     }
 
                 }

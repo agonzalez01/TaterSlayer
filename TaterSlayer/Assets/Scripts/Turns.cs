@@ -16,8 +16,8 @@ public class Turns : MonoBehaviour
     public GameObject PowerBar;
     public Text Timer;
 
-    float currentTime = 45;
-    float startingTime = 45;
+    float currentTime = 25;
+    float startingTime = 25;
 
     public Water SinkChanges;
 
@@ -152,7 +152,7 @@ public class Turns : MonoBehaviour
             CanPlayerMove.canMove = false;
 
             yield return new WaitForSecondsRealtime(1f);
-            currentTime = 45;
+            currentTime = 25;
             index++;
             turnsTaken++;
             PlayerInTurn = Players[index];
