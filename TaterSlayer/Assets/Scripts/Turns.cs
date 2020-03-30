@@ -16,6 +16,8 @@ public class Turns : MonoBehaviour
     public GameObject PowerBar;
     public Text Timer;
 
+    public AudioSource Winning;
+
     float currentTime = 25;
     float startingTime = 25;
 
@@ -139,6 +141,7 @@ public class Turns : MonoBehaviour
             EndState.SetActive(true);
             Inventory.SetActive(false);
             PowerBar.SetActive(false);
+            Winning.Play();
         }
 
         else
@@ -148,7 +151,7 @@ public class Turns : MonoBehaviour
             {
                 index = -1;
             }
-            yield return new WaitForSecondsRealtime(45f);
+            yield return new WaitForSecondsRealtime(25f);
             CanPlayerMove.canMove = false;
 
             yield return new WaitForSecondsRealtime(1f);

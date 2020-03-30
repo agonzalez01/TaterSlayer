@@ -16,7 +16,7 @@ public class PotatoMovement : MonoBehaviour
     public AudioSource grenadeLaunch;
     public AudioSource oof;
 
-    public float speed = .75f;
+    public float speed = .5f;
     public float health = 100f;
 
     
