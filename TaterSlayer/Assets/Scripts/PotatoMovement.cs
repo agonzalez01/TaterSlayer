@@ -36,6 +36,7 @@ public class PotatoMovement : MonoBehaviour
     public float hitDistance;
 
     PotatoMovement playerHit;
+    GrenadeLauncher launch;
 
     private bool isGrounded;
 
@@ -93,6 +94,14 @@ public class PotatoMovement : MonoBehaviour
                 range = 6;
                 snipeShot.Play();
                 damage = 34;
+            }
+
+            else if (shootingType == 3)
+            {
+                launch = GetComponent<GrenadeLauncher>();
+                launch.LauncherShot();
+                grenadeLaunch.Play();
+                damage = 60;
             }
 
             RaycastHit hit;
@@ -155,9 +164,9 @@ public class PotatoMovement : MonoBehaviour
     {
         if (canMove)
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveHorizontal = Input.GetAxis("Moving");
             var dir = Vector3.zero;
-            dir.x = Input.GetAxis("Horizontal");
+            dir.x = Input.GetAxis("Moving");
 
             rb.velocity = new Vector3(moveHorizontal * speed, rb.velocity.y, rb.velocity.z);
            // transform.rotation = Quaternion.LookRotation(dir);
@@ -188,7 +197,7 @@ public class PotatoMovement : MonoBehaviour
             //float jumpVelocity = 2f;
             if (isGrounded)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.M))
                 {
                     GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
                 }
