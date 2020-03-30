@@ -7,8 +7,17 @@ public class Turns : MonoBehaviour
 {
 
     public GameObject[] Players = new GameObject[6];
+    public bool[] playersDead = new bool[6];
 
     public GameObject PlayerInTurn;
+
+    public GameObject EndState;
+    public GameObject Inventory;
+    public GameObject PowerBar;
+    public Text Timer;
+
+    float currentTime = 45;
+    float startingTime = 45;
 
     public Water SinkChanges;
 
@@ -28,11 +37,21 @@ public class Turns : MonoBehaviour
         CanPlayerMove = PlayerInTurn.GetComponent<PotatoMovement>();
         SinkChanges = GameObject.Find("Water").GetComponent<Water>();
         StartTurn();
+
+        currentTime = startingTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTime -= 1*Time.deltaTime;
+
+        Timer.text = currentTime.ToString("0");
+
+        if(currentTime<=0)
+        {
+            currentTime = 0;
+        }
         if(!hasChosenWeapon)
         {
             if(Input.GetKeyDown("1"))
@@ -90,33 +109,63 @@ public class Turns : MonoBehaviour
     public void StartTurn()
     {
         Debug.Log("SettingTurn");
-        CanPlayerMove.canMove = true;
-        CanPlayerMove.canShoot = true;
-        StartCoroutine(NextTurn());
+        if (CanPlayerMove.gameObject.activeInHierarchy)
+        {
+            CanPlayerMove.canMove = true;
+            CanPlayerMove.canShoot = true;
+            StartCoroutine(NextTurn());
+        }
+        else
+        {
+            playersDead[index] = true;
+            if (index == 5)
+            {
+                index = -1;
+            }
+
+            index++;
+            PlayerInTurn = Players[index];
+            CanPlayerMove = PlayerInTurn.GetComponent<PotatoMovement>();
+            StartTurn();
+        }
 
     }
 
     IEnumerator NextTurn()
     {
-        if(index == 5)
+        if (playersDead[1] && playersDead[3] && playersDead[5])
         {
-            index = -1;
+            Time.timeScale = 0;
+            EndState.SetActive(true);
+            Inventory.SetActive(false);
+            PowerBar.SetActive(false);
         }
-        yield return new WaitForSecondsRealtime(50f);
-        CanPlayerMove.canMove = false;
 
-        yield return new WaitForSecondsRealtime(2f);
-        index++;
-        turnsTaken++;
-        PlayerInTurn = Players[index];
-        CanPlayerMove = PlayerInTurn.GetComponent<PotatoMovement>();
-        hasChosenWeapon = false;
-
-        StartTurn();
-
-        if(turnsTaken%4 == 0)
+        else
         {
-            SinkChanges.WaterChange();
+
+            if (index == 5)
+            {
+                index = -1;
+            }
+            yield return new WaitForSecondsRealtime(45f);
+            CanPlayerMove.canMove = false;
+
+            yield return new WaitForSecondsRealtime(1f);
+            currentTime = 45;
+            index++;
+            turnsTaken++;
+            PlayerInTurn = Players[index];
+            CanPlayerMove = PlayerInTurn.GetComponent<PotatoMovement>();
+            hasChosenWeapon = false;
+
+            StartTurn();
+
+            if (turnsTaken % 4 == 0)
+            {
+                SinkChanges.WaterChange();
+            }
+
         }
 
     }

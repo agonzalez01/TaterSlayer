@@ -10,6 +10,12 @@ public class PotatoMovement : MonoBehaviour
     public bool canMove;
     public bool canShoot;
 
+    public AudioSource knifeSound;
+    public AudioSource ouch;
+    public AudioSource snipeShot;
+    public AudioSource grenadeLaunch;
+    public AudioSource oof;
+
     public float speed = 1f;
     public float health = 100f;
 
@@ -60,24 +66,33 @@ public class PotatoMovement : MonoBehaviour
         CheckGround();
     }
 
+    IEnumerator PlayOuch()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        ouch.Play();
+    }
+
     void Shoot(bool shootRight, int shootingType)
     {
         if (canShoot)
         {
             canShoot = false;
 
+            float damage = 0;
             float range = 0;
 
             if (shootingType == 1)
             {
-                range = 0.5f;
-                Debug.Log("range is short");
+                range = 0.8f;
+                knifeSound.Play();
+                damage = 50;
             }
 
             else if (shootingType == 2)
             {
                 range = 6;
-                Debug.Log("range is long");
+                snipeShot.Play();
+                damage = 34;
             }
 
             RaycastHit hit;
@@ -91,11 +106,15 @@ public class PotatoMovement : MonoBehaviour
                     if (playerHit != null)
                     {
                         Debug.Log("casted");
-                        playerHit.health -= 30;
-                        if (playerHit.health <= 100)
+                        playerHit.health -= damage;
+
+                        if (playerHit.health <= 0)
                         {
                             playerHit.gameObject.SetActive(false);
+                            oof.Play();
                         }
+                        else
+                            StartCoroutine(PlayOuch());
                     }
 
                 }
@@ -112,12 +131,15 @@ public class PotatoMovement : MonoBehaviour
                     if (playerHit != null)
                     {
                         Debug.Log("casted");
-                        playerHit.health -= 30;
-                        if (playerHit.health <= 100)
+                        playerHit.health -= damage;
+                        
+                        if (playerHit.health <= 0)
                         {
-                            // Object.Destroy(playerHit);
                             playerHit.gameObject.SetActive(false);
+                            oof.Play();
                         }
+                        else
+                            ouch.Play();
                     }
 
                 }
@@ -174,6 +196,7 @@ public class PotatoMovement : MonoBehaviour
 
         }
     }
+
 
     private void CheckGround()
     {
